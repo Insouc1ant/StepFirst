@@ -115,7 +115,7 @@ struct LockedAppsView: View {
                             // Show divider unless it's the absolute last item in the combined list
                             if index < selectedCategoryTokens.count - 1 || !selectedApplicationTokens.isEmpty {
                                 Divider().padding(.leading, 52)
-                            }xq
+                            }
                         }
                     }
                     

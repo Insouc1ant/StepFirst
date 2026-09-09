@@ -19,7 +19,7 @@
                BlueprintIdentifier = "697F9F9E3045656300B6B259"
                BuildableName = "AppUsageReport.appex"
                BlueprintName = "AppUsageReport"
-               ReferencedContainer = "container:Steps to Unlock.xcodeproj">
+               ReferencedContainer = "container:StepFirst.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -33,7 +33,7 @@
                BlueprintIdentifier = "69DBC5A02F9A05A700305DEE"
                BuildableName = "Steps to Unlock.app"
                BlueprintName = "Steps to Unlock"
-               ReferencedContainer = "container:Steps to Unlock.xcodeproj">
+               ReferencedContainer = "container:StepFirst.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -65,7 +65,7 @@
             BlueprintIdentifier = "69DBC5A02F9A05A700305DEE"
             BuildableName = "Steps to Unlock.app"
             BlueprintName = "Steps to Unlock"
-            ReferencedContainer = "container:Steps to Unlock.xcodeproj">
+            ReferencedContainer = "container:StepFirst.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,7 +84,7 @@
             BlueprintIdentifier = "69DBC5A02F9A05A700305DEE"
             BuildableName = "Steps to Unlock.app"
             BlueprintName = "Steps to Unlock"
-            ReferencedContainer = "container:Steps to Unlock.xcodeproj">
+            ReferencedContainer = "container:StepFirst.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
