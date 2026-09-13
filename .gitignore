@@ -30,3 +30,7 @@ GoogleService-Info.plist
 
 # ===== PREVIEW CONTENT =====
 *.xcplayground
+
+# ===== MACOS SYSTEM FILES =====
+.DS_Store
+*/.DS_Store
