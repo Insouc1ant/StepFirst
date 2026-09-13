@@ -1,0 +1,1115 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6927E3C63049676F00D5AE61 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697F9FB3304568DF00B6B259 /* ManagedSettings.framework */; };
+		6927E3CE3049676F00D5AE61 /* AppShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6927E3C53049676F00D5AE61 /* AppShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6927E3D83049678B00D5AE61 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697F9FB3304568DF00B6B259 /* ManagedSettings.framework */; };
+		6927E3DA3049678B00D5AE61 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6927E3D93049678B00D5AE61 /* ManagedSettingsUI.framework */; };
+		6927E3E23049678B00D5AE61 /* AppShieldConfig.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6927E3D73049678B00D5AE61 /* AppShieldConfig.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		697F9F8D304564F500B6B259 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697F9F8C304564F500B6B259 /* DeviceActivity.framework */; };
+		697F9F95304564F500B6B259 /* AppMonitorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 697F9F8A304564F500B6B259 /* AppMonitorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		697F9FAB3045656300B6B259 /* AppUsageReport.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 697F9F9F3045656300B6B259 /* AppUsageReport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		697F9FB2304568DB00B6B259 /* FamilyControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697F9FB1304568DB00B6B259 /* FamilyControls.framework */; };
+		697F9FB4304568DF00B6B259 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697F9FB3304568DF00B6B259 /* ManagedSettings.framework */; };
+		697F9FB93045694A00B6B259 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697F9F8C304564F500B6B259 /* DeviceActivity.framework */; };
+		697F9FBA3045694E00B6B259 /* ExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697F9FB5304568FD00B6B259 /* ExtensionKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6927E3CC3049676F00D5AE61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69DBC5992F9A05A700305DEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6927E3C43049676F00D5AE61;
+			remoteInfo = AppShieldAction;
+		};
+		6927E3E03049678B00D5AE61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69DBC5992F9A05A700305DEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6927E3D63049678B00D5AE61;
+			remoteInfo = AppShieldConfig;
+		};
+		697F9F93304564F500B6B259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69DBC5992F9A05A700305DEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 697F9F89304564F500B6B259;
+			remoteInfo = AppMonitorExtension;
+		};
+		697F9FA93045656300B6B259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69DBC5992F9A05A700305DEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 697F9F9E3045656300B6B259;
+			remoteInfo = AppUsageReport;
+		};
+		69AABF633056A42900E98C30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69DBC5992F9A05A700305DEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69DBC5A02F9A05A700305DEE;
+			remoteInfo = StepFirst;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		697F9F96304564F500B6B259 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				697F9F95304564F500B6B259 /* AppMonitorExtension.appex in Embed Foundation Extensions */,
+				6927E3E23049678B00D5AE61 /* AppShieldConfig.appex in Embed Foundation Extensions */,
+				6927E3CE3049676F00D5AE61 /* AppShieldAction.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		697F9FB03045656300B6B259 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				697F9FAB3045656300B6B259 /* AppUsageReport.appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6927E3C53049676F00D5AE61 /* AppShieldAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AppShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6927E3D73049678B00D5AE61 /* AppShieldConfig.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AppShieldConfig.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6927E3D93049678B00D5AE61 /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
+		697F9F8A304564F500B6B259 /* AppMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AppMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		697F9F8C304564F500B6B259 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
+		697F9F9F3045656300B6B259 /* AppUsageReport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = AppUsageReport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		697F9FB1304568DB00B6B259 /* FamilyControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FamilyControls.framework; path = System/Library/Frameworks/FamilyControls.framework; sourceTree = SDKROOT; };
+		697F9FB3304568DF00B6B259 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
+		697F9FB5304568FD00B6B259 /* ExtensionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtensionKit.framework; path = System/Library/Frameworks/ExtensionKit.framework; sourceTree = SDKROOT; };
+		697F9FB73045690300B6B259 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		69AABF5F3056A42900E98C30 /* StepFirstTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepFirstTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69DBC5A12F9A05A700305DEE /* StepFirst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepFirst.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6997DE3C3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppMonitorExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppMonitorExtension/Info.plist,
+				AppShieldAction/Info.plist,
+				AppShieldAction/ShieldActionExtension.swift,
+				AppShieldConfig/Info.plist,
+				AppShieldConfig/ShieldConfigurationExtension.swift,
+				AppUsageReport/AppUsageReport.swift,
+				AppUsageReport/Info.plist,
+				AppUsageReport/TotalActivityReport.swift,
+				AppUsageReport/TotalActivityView.swift,
+			);
+			target = 697F9F89304564F500B6B259 /* AppMonitorExtension */;
+		};
+		6997DE3D3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppUsageReport" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppUsageReport/AppUsageReport.swift,
+				AppUsageReport/TotalActivityReport.swift,
+				AppUsageReport/TotalActivityView.swift,
+			);
+			target = 697F9F9E3045656300B6B259 /* AppUsageReport */;
+		};
+		6997DE3E3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppShieldAction" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppShieldAction/ShieldActionExtension.swift,
+			);
+			target = 6927E3C43049676F00D5AE61 /* AppShieldAction */;
+		};
+		6997DE3F3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppShieldConfig" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppShieldConfig/ShieldConfigurationExtension.swift,
+			);
+			target = 6927E3D63049678B00D5AE61 /* AppShieldConfig */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6997DE233053F96000FC13E3 /* Extensions */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6997DE3C3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppMonitorExtension" target */,
+				6997DE3D3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppUsageReport" target */,
+				6997DE3E3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppShieldAction" target */,
+				6997DE3F3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppShieldConfig" target */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		69AABF603056A42900E98C30 /* StepFirstTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = StepFirstTests;
+			sourceTree = "<group>";
+		};
+		69DBC5A32F9A05A700305DEE /* StepFirst */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = StepFirst;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6927E3C23049676F00D5AE61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6927E3C63049676F00D5AE61 /* ManagedSettings.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6927E3D43049678B00D5AE61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6927E3D83049678B00D5AE61 /* ManagedSettings.framework in Frameworks */,
+				6927E3DA3049678B00D5AE61 /* ManagedSettingsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		697F9F87304564F500B6B259 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				697F9FB4304568DF00B6B259 /* ManagedSettings.framework in Frameworks */,
+				697F9FB2304568DB00B6B259 /* FamilyControls.framework in Frameworks */,
+				697F9F8D304564F500B6B259 /* DeviceActivity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		697F9F9C3045656300B6B259 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				697F9FBA3045694E00B6B259 /* ExtensionKit.framework in Frameworks */,
+				697F9FB93045694A00B6B259 /* DeviceActivity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69AABF5C3056A42900E98C30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69DBC59E2F9A05A700305DEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		697F9F8B304564F500B6B259 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				697F9FB73045690300B6B259 /* SwiftUI.framework */,
+				697F9FB5304568FD00B6B259 /* ExtensionKit.framework */,
+				697F9FB3304568DF00B6B259 /* ManagedSettings.framework */,
+				697F9FB1304568DB00B6B259 /* FamilyControls.framework */,
+				697F9F8C304564F500B6B259 /* DeviceActivity.framework */,
+				6927E3D93049678B00D5AE61 /* ManagedSettingsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69DBC5982F9A05A700305DEE = {
+			isa = PBXGroup;
+			children = (
+				6997DE233053F96000FC13E3 /* Extensions */,
+				69DBC5A32F9A05A700305DEE /* StepFirst */,
+				69AABF603056A42900E98C30 /* StepFirstTests */,
+				697F9F8B304564F500B6B259 /* Frameworks */,
+				69DBC5A22F9A05A700305DEE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69DBC5A22F9A05A700305DEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69DBC5A12F9A05A700305DEE /* StepFirst.app */,
+				697F9F8A304564F500B6B259 /* AppMonitorExtension.appex */,
+				697F9F9F3045656300B6B259 /* AppUsageReport.appex */,
+				6927E3C53049676F00D5AE61 /* AppShieldAction.appex */,
+				6927E3D73049678B00D5AE61 /* AppShieldConfig.appex */,
+				69AABF5F3056A42900E98C30 /* StepFirstTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6927E3C43049676F00D5AE61 /* AppShieldAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6927E3D23049676F00D5AE61 /* Build configuration list for PBXNativeTarget "AppShieldAction" */;
+			buildPhases = (
+				6927E3C13049676F00D5AE61 /* Sources */,
+				6927E3C23049676F00D5AE61 /* Frameworks */,
+				6927E3C33049676F00D5AE61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppShieldAction;
+			packageProductDependencies = (
+			);
+			productName = AppShieldAction;
+			productReference = 6927E3C53049676F00D5AE61 /* AppShieldAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		6927E3D63049678B00D5AE61 /* AppShieldConfig */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6927E3E43049678B00D5AE61 /* Build configuration list for PBXNativeTarget "AppShieldConfig" */;
+			buildPhases = (
+				6927E3D33049678B00D5AE61 /* Sources */,
+				6927E3D43049678B00D5AE61 /* Frameworks */,
+				6927E3D53049678B00D5AE61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppShieldConfig;
+			packageProductDependencies = (
+			);
+			productName = AppShieldConfig;
+			productReference = 6927E3D73049678B00D5AE61 /* AppShieldConfig.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		697F9F89304564F500B6B259 /* AppMonitorExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 697F9F9A304564F500B6B259 /* Build configuration list for PBXNativeTarget "AppMonitorExtension" */;
+			buildPhases = (
+				697F9F86304564F500B6B259 /* Sources */,
+				697F9F87304564F500B6B259 /* Frameworks */,
+				697F9F88304564F500B6B259 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6997DE233053F96000FC13E3 /* Extensions */,
+			);
+			name = AppMonitorExtension;
+			packageProductDependencies = (
+			);
+			productName = AppMonitorExtension;
+			productReference = 697F9F8A304564F500B6B259 /* AppMonitorExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		697F9F9E3045656300B6B259 /* AppUsageReport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 697F9FAD3045656300B6B259 /* Build configuration list for PBXNativeTarget "AppUsageReport" */;
+			buildPhases = (
+				697F9F9B3045656300B6B259 /* Sources */,
+				697F9F9C3045656300B6B259 /* Frameworks */,
+				697F9F9D3045656300B6B259 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppUsageReport;
+			packageProductDependencies = (
+			);
+			productName = AppUsageReport;
+			productReference = 697F9F9F3045656300B6B259 /* AppUsageReport.appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
+		};
+		69AABF5E3056A42900E98C30 /* StepFirstTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69AABF673056A42900E98C30 /* Build configuration list for PBXNativeTarget "StepFirstTests" */;
+			buildPhases = (
+				69AABF5B3056A42900E98C30 /* Sources */,
+				69AABF5C3056A42900E98C30 /* Frameworks */,
+				69AABF5D3056A42900E98C30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69AABF643056A42900E98C30 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				69AABF603056A42900E98C30 /* StepFirstTests */,
+			);
+			name = StepFirstTests;
+			packageProductDependencies = (
+			);
+			productName = StepFirstTests;
+			productReference = 69AABF5F3056A42900E98C30 /* StepFirstTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		69DBC5A02F9A05A700305DEE /* StepFirst */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69DBC5AE2F9A05A800305DEE /* Build configuration list for PBXNativeTarget "StepFirst" */;
+			buildPhases = (
+				69DBC59D2F9A05A700305DEE /* Sources */,
+				69DBC59E2F9A05A700305DEE /* Frameworks */,
+				69DBC59F2F9A05A700305DEE /* Resources */,
+				697F9F96304564F500B6B259 /* Embed Foundation Extensions */,
+				697F9FB03045656300B6B259 /* Embed ExtensionKit Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				697F9F94304564F500B6B259 /* PBXTargetDependency */,
+				697F9FAA3045656300B6B259 /* PBXTargetDependency */,
+				6927E3CD3049676F00D5AE61 /* PBXTargetDependency */,
+				6927E3E13049678B00D5AE61 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				69DBC5A32F9A05A700305DEE /* StepFirst */,
+			);
+			name = StepFirst;
+			packageProductDependencies = (
+			);
+			productName = "Steps to Unlock";
+			productReference = 69DBC5A12F9A05A700305DEE /* StepFirst.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69DBC5992F9A05A700305DEE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2660;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					6927E3C43049676F00D5AE61 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					6927E3D63049678B00D5AE61 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					697F9F89304564F500B6B259 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					697F9F9E3045656300B6B259 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					69AABF5E3056A42900E98C30 = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = 69DBC5A02F9A05A700305DEE;
+					};
+					69DBC5A02F9A05A700305DEE = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 69DBC59C2F9A05A700305DEE /* Build configuration list for PBXProject "StepFirst" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 69DBC5982F9A05A700305DEE;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 69DBC5A22F9A05A700305DEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69DBC5A02F9A05A700305DEE /* StepFirst */,
+				697F9F89304564F500B6B259 /* AppMonitorExtension */,
+				697F9F9E3045656300B6B259 /* AppUsageReport */,
+				6927E3C43049676F00D5AE61 /* AppShieldAction */,
+				6927E3D63049678B00D5AE61 /* AppShieldConfig */,
+				69AABF5E3056A42900E98C30 /* StepFirstTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6927E3C33049676F00D5AE61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6927E3D53049678B00D5AE61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		697F9F88304564F500B6B259 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		697F9F9D3045656300B6B259 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69AABF5D3056A42900E98C30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69DBC59F2F9A05A700305DEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6927E3C13049676F00D5AE61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6927E3D33049678B00D5AE61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		697F9F86304564F500B6B259 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		697F9F9B3045656300B6B259 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69AABF5B3056A42900E98C30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69DBC59D2F9A05A700305DEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6927E3CD3049676F00D5AE61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6927E3C43049676F00D5AE61 /* AppShieldAction */;
+			targetProxy = 6927E3CC3049676F00D5AE61 /* PBXContainerItemProxy */;
+		};
+		6927E3E13049678B00D5AE61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6927E3D63049678B00D5AE61 /* AppShieldConfig */;
+			targetProxy = 6927E3E03049678B00D5AE61 /* PBXContainerItemProxy */;
+		};
+		697F9F94304564F500B6B259 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 697F9F89304564F500B6B259 /* AppMonitorExtension */;
+			targetProxy = 697F9F93304564F500B6B259 /* PBXContainerItemProxy */;
+		};
+		697F9FAA3045656300B6B259 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 697F9F9E3045656300B6B259 /* AppUsageReport */;
+			targetProxy = 697F9FA93045656300B6B259 /* PBXContainerItemProxy */;
+		};
+		69AABF643056A42900E98C30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69DBC5A02F9A05A700305DEE /* StepFirst */;
+			targetProxy = 69AABF633056A42900E98C30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6927E3CF3049676F00D5AE61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/AppShieldAction/AppShieldAction.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extensions/AppShieldAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppShieldAction;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Steps to Unlock needs your motion data to check if you walked enough steps to unlock your apps.";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst.AppShieldAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6927E3D03049676F00D5AE61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/AppShieldAction/AppShieldAction.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extensions/AppShieldAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppShieldAction;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Steps to Unlock needs your motion data to check if you walked enough steps to unlock your apps.";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kee.Steps-to-Unlock.AppShieldAction";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6927E3E53049678B00D5AE61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/AppShieldConfig/AppShieldConfig.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extensions/AppShieldConfig/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppShieldConfig;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst.AppShieldConfig;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6927E3E63049678B00D5AE61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/AppShieldConfig/AppShieldConfig.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extensions/AppShieldConfig/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppShieldConfig;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kee.Steps-to-Unlock.AppShieldConfig";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		697F9F97304564F500B6B259 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/AppMonitorExtension/AppMonitorExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extensions/AppMonitorExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppMonitorExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst.AppMonitorExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		697F9F98304564F500B6B259 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/AppMonitorExtension/AppMonitorExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extensions/AppMonitorExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppMonitorExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst.AppMonitorExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		697F9FAE3045656300B6B259 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/AppUsageReport/AppUsageReport.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extensions/AppUsageReport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppUsageReport;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst.AppUsageReport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		697F9FAF3045656300B6B259 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/AppUsageReport/AppUsageReport.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extensions/AppUsageReport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppUsageReport;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kee.Steps-to-Unlock.AppUsageReport";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		69AABF653056A42900E98C30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirstTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StepFirst.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StepFirst";
+			};
+			name = Debug;
+		};
+		69AABF663056A42900E98C30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirstTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StepFirst.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StepFirst";
+			};
+			name = Release;
+		};
+		69DBC5AC2F9A05A800305DEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		69DBC5AD2F9A05A800305DEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69DBC5AF2F9A05A800305DEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StepFirst/StepFirst.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = StepFirst;
+				INFOPLIST_KEY_NSMotionUsageDescription = "Steps to Unlock needs your motion data to track steps and unlock your apps";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69DBC5B02F9A05A800305DEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StepFirst/StepFirst.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5VZU5CTZS2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = StepFirst;
+				INFOPLIST_KEY_NSMotionUsageDescription = "Steps to Unlock needs your motion data to track steps and unlock your apps";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6927E3D23049676F00D5AE61 /* Build configuration list for PBXNativeTarget "AppShieldAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6927E3CF3049676F00D5AE61 /* Debug */,
+				6927E3D03049676F00D5AE61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6927E3E43049678B00D5AE61 /* Build configuration list for PBXNativeTarget "AppShieldConfig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6927E3E53049678B00D5AE61 /* Debug */,
+				6927E3E63049678B00D5AE61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		697F9F9A304564F500B6B259 /* Build configuration list for PBXNativeTarget "AppMonitorExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				697F9F97304564F500B6B259 /* Debug */,
+				697F9F98304564F500B6B259 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		697F9FAD3045656300B6B259 /* Build configuration list for PBXNativeTarget "AppUsageReport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				697F9FAE3045656300B6B259 /* Debug */,
+				697F9FAF3045656300B6B259 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69AABF673056A42900E98C30 /* Build configuration list for PBXNativeTarget "StepFirstTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69AABF653056A42900E98C30 /* Debug */,
+				69AABF663056A42900E98C30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69DBC59C2F9A05A700305DEE /* Build configuration list for PBXProject "StepFirst" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69DBC5AC2F9A05A800305DEE /* Debug */,
+				69DBC5AD2F9A05A800305DEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69DBC5AE2F9A05A800305DEE /* Build configuration list for PBXNativeTarget "StepFirst" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69DBC5AF2F9A05A800305DEE /* Debug */,
+				69DBC5B02F9A05A800305DEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 69DBC5992F9A05A700305DEE /* Project object */;
+}
