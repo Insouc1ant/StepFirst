@@ -7,7 +7,7 @@ struct HeroProgressRing: View {
     let stepTarget: Int
     
     var ringColor: Color {
-        !isLocked ? .indigo : .orange
+        !isLocked ? .indigo : .indigo
     }
     
     var progressAmount: Double {
@@ -38,29 +38,34 @@ struct HeroProgressRing: View {
                 if !isLocked {
                     // UNLOCKED STATE
                     Image(systemName: "lock.open.fill")
-                        .font(.title2)
+                        .font(.title)
                         .foregroundStyle(.green)
                     
                     Text("\(timeEarned) Min")
-                        .font(.system(size: 48, weight: .bold, design: .rounded))
+                        .font(.largeTitleRoundedBold)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.65)
                     
                     Text("Allowance Active")
-                        .font(.subheadline)
+                        .font(.subheadlineSemibold)
                         .foregroundStyle(.secondary)
                 } else {
                     // LOCKED STATE
                     Image(systemName: "lock.fill")
-                        .font(.title2)
+                        .font(.title)
                         .foregroundStyle(.red)
                     
                     Text("\(stepsWalked)")
-                        .font(.system(size: 48, weight: .bold, design: .rounded))
+                        .font(.largeTitleRoundedBold)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.65)
                     
                     Text("of \(stepTarget) steps")
-                        .font(.subheadline)
+                        .font(.subheadlineSemibold)
                         .foregroundStyle(.secondary)
                 }
             }
+            .padding(.horizontal, 24)
         }
         .frame(width: 280, height: 280)
     }

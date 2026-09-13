@@ -9,8 +9,7 @@ struct SetPlanView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Set Your Plan!")
-                .font(.largeTitle)
-                .fontWeight(.bold)
+                .font(.largeTitleBold)
                 .padding(.top, 12)
                 .padding(.bottom, 28)
             
@@ -40,7 +39,7 @@ struct SetPlanView: View {
                 viewModel.completeOnboarding()
             } label: {
                 Text("Start Plan")
-                    .font(.headline)
+                    .font(.headlineSemibold)
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
@@ -58,9 +57,9 @@ struct SetPlanView: View {
                 } label: {
                     HStack(spacing: 4) {
                         Image(systemName: "chevron.backward")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.headlineSemibold)
                         Text("Back")
-                            .font(.body)
+                            .font(.bodyRegular)
                     }
                     .foregroundStyle(.indigo)
                 }
@@ -77,10 +76,10 @@ struct StepGoalCard: View {
         VStack(spacing: 8) {
             HStack {
                 Text("Steps")
-                    .font(.body)
+                    .font(.bodyRegular)
                 Spacer()
                 Text("\(Int(stepGoals))")
-                    .font(.headline)
+                    .font(.headlineSemibold)
                     .foregroundStyle(.indigo)
             }
             
@@ -89,11 +88,11 @@ struct StepGoalCard: View {
             
             HStack {
                 Text("50")
-                    .font(.caption)
+                    .font(.captionRegular)
                     .foregroundStyle(.secondary)
                 Spacer()
                 Text("2000")
-                    .font(.caption)
+                    .font(.captionRegular)
                     .foregroundStyle(.secondary)
             }
         }
@@ -110,8 +109,8 @@ struct ScreenTimeEarnedCard: View {
     var body: some View {
         VStack(spacing: 8) {
             HStack {
-                Text("Duration")
-                    .font(.body)
+                Text("Allowance Duration")
+                    .font(.bodyRegular)
                 
                 Spacer()
                 

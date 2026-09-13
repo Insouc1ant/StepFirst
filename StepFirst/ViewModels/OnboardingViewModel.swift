@@ -89,22 +89,29 @@ final class OnboardingViewModel {
     // MARK: - Screen 2 Actions (Finish Onboarding)
     
     func completeOnboarding() {
-        // 1. Save to App Group (for background extensions)
+        // 1. Ensure app selections are explicitly saved
+        screenTimeManager.saveSelection(selectedApps)
+
+        // 2. Save to App Group (for background extensions & widgets)
         appGroupDefaults?.set(Int(stepGoals), forKey: StorageKey.stepGoals)
         appGroupDefaults?.set(timeEarned, forKey: StorageKey.timeEarned)
+        appGroupDefaults?.set(timeEarned, forKey: StorageKey.activeAllowanceMinutes)
+        appGroupDefaults?.set(0, forKey: StorageKey.activeStepTarget)
         appGroupDefaults?.set(false, forKey: StorageKey.isLocked)
         appGroupDefaults?.set(0, forKey: StorageKey.lockActivatedAt)
 
-        // 2. Save initial parameters to Standard UserDefaults
+        // 3. Save to Standard UserDefaults (for main app UI)
+        UserDefaults.standard.set(stepGoals, forKey: StorageKey.stepGoals)
+        UserDefaults.standard.set(timeEarned, forKey: StorageKey.timeEarned)
         UserDefaults.standard.set(timeEarned * 60, forKey: StorageKey.secondsRemaining)
         UserDefaults.standard.set(0, forKey: StorageKey.initialUsage)
         UserDefaults.standard.set(true, forKey: StorageKey.hasSetInitialUsage)
         UserDefaults.standard.set(0, forKey: StorageKey.baselineSteps)
 
-        // 3. Start background monitoring
+        // 4. Start background monitoring
         deviceActivityManager.startMonitoring(timeLimitMinutes: timeEarned)
 
-        // 4. Request notifications and flip the switch to open Dashboard
+        // 5. Request notifications and flip the switch to open Dashboard
         notificationManager.requestPermission { _ in
             DispatchQueue.main.async {
                 UserDefaults.standard.set(true, forKey: StorageKey.hasCompletedOnboarding)

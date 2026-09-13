@@ -16,6 +16,22 @@ struct Steps_to_UnlockApp: App {
         }
     }()
 
+    init() {
+        exportAppLogoToSharedGroup()
+    }
+
+    private func exportAppLogoToSharedGroup() {
+        guard let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.kee.StepFirst") else {
+            return
+        }
+        let targetURL = groupURL.appendingPathComponent("AppLogo.png")
+        if !FileManager.default.fileExists(atPath: targetURL.path) {
+            if let sourcePath = Bundle.main.path(forResource: "AppLogo", ofType: "png") {
+                try? FileManager.default.copyItem(atPath: sourcePath, toPath: targetURL.path)
+            }
+        }
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

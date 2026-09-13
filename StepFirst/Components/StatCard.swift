@@ -19,21 +19,23 @@ struct StatCardView: View {
                     .foregroundStyle(tintColor)
                 
                 Text(title)
-                    .font(.footnote.weight(.semibold))
+                    .font(.footnoteSemibold)
                     .foregroundStyle(.secondary)
                 
                 Spacer()
                 
                 Button(action: infoAction) {
                     Image(systemName: "info.circle")
-                        .font(.system(size: 20))
+                        .font(.bodyRegular)
                         .foregroundStyle(Color(uiColor: .tertiaryLabel))
                 }
             }
             
             Text(value)
-                .font(.system(size: 28, weight: .bold, design: .rounded))
+                .font(.titleRoundedBold)
                 .foregroundStyle(.primary)
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)

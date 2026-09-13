@@ -8,6 +8,11 @@ struct SettingsView: View {
     // MARK: - ViewModel (Single Source of Truth)
     @State private var viewModel = SettingsViewModel()
     
+    // MARK: - Notice Alert State
+    @State private var showingNoticeAlert = false
+    @State private var noticeTitle = ""
+    @State private var noticeMessage = ""
+    
     // MARK: - UI Layout Constants (Pure Visual styling)
     private let rowHeight: CGFloat = 56
     private let maxListHeight: CGFloat = 336 // 56 * 6 rows
@@ -47,12 +52,12 @@ struct SettingsView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                     }
                     
-                    // 📦 COMBINED LIST: Categories + Individual Apps
+                    // COMBINED LIST: Categories + Individual Apps
                     if viewModel.hasValidSelection {
                         Spacer().frame(height: 16)
 
                         Text("Selected Items")
-                            .font(.headline)
+                            .font(.headlineSemibold)
                             .foregroundStyle(.primary)
                             .padding(.horizontal, 8)
                             .padding(.bottom, 8)
@@ -65,8 +70,8 @@ struct SettingsView: View {
                                     VStack(spacing: 0) {
                                         HStack(spacing: 12) {
                                             Label(token)
-                                                .labelStyle(.titleAndIcon)
-                                                .font(.body)
+                                                .labelStyle(.scaledIcon)
+                                                .font(.caption)
                                                 .foregroundStyle(.primary)
 
                                             Spacer()
@@ -75,7 +80,7 @@ struct SettingsView: View {
                                         .padding(.horizontal, 16)
 
                                         if index < viewModel.selectedCategoryTokens.count - 1 || !viewModel.selectedApplicationTokens.isEmpty {
-                                            Divider().padding(.leading, 52)
+                                            Divider().padding(.leading, 58)
                                         }
                                     }
                                 }
@@ -85,8 +90,8 @@ struct SettingsView: View {
                                     VStack(spacing: 0) {
                                         HStack(spacing: 12) {
                                             Label(token)
-                                                .labelStyle(.titleAndIcon)
-                                                .font(.body)
+                                                .labelStyle(.scaledIcon)
+                                                .font(.caption)
                                                 .foregroundStyle(.primary)
 
                                             Spacer()
@@ -95,7 +100,7 @@ struct SettingsView: View {
                                         .padding(.horizontal, 16)
 
                                         if index < viewModel.selectedApplicationTokens.count - 1 {
-                                            Divider().padding(.leading, 52)
+                                            Divider().padding(.leading, 58)
                                         }
                                     }
                                 }
@@ -117,10 +122,10 @@ struct SettingsView: View {
                     VStack(spacing: 8) {
                         HStack {
                             Text("Steps")
-                                .font(.body)
+                                .font(.bodyRegular)
                             Spacer()
                             Text("\(Int(viewModel.stepGoals))")
-                                .font(.headline)
+                                .font(.headlineSemibold)
                                 .foregroundStyle(.indigo)
                         }
                         
@@ -129,11 +134,11 @@ struct SettingsView: View {
                         
                         HStack {
                             Text("50")
-                                .font(.caption)
+                                .font(.captionRegular)
                                 .foregroundStyle(.secondary)
                             Spacer()
                             Text("2000")
-                                .font(.caption)
+                                .font(.captionRegular)
                                 .foregroundStyle(.secondary)
                         }
                     }
@@ -153,7 +158,7 @@ struct SettingsView: View {
                     VStack(spacing: 12) {
                         HStack {
                             Text("Allowance Duration")
-                                .font(.body)
+                                .font(.bodyRegular)
                             
                             Spacer()
                             
@@ -203,15 +208,26 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Image(systemName: "checkmark")
-                        .font(.system(size: 17, weight: .semibold))
-                        .foregroundStyle(Color(uiColor: .tertiaryLabel))
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            viewModel.saveSettings()
+                    Button("Done", systemImage: "checkmark") {
+                        if let notice = viewModel.saveAndCheckNotice() {
+                            noticeTitle = notice.title
+                            noticeMessage = notice.message
+                            showingNoticeAlert = true
+                        } else {
                             dismiss()
                         }
+                    }
+                    .labelStyle(.iconOnly)
+                    .font(.headlineSemibold)
+                    .foregroundStyle(Color(uiColor: .tertiaryLabel))
                 }
+            }
+            .alert(noticeTitle, isPresented: $showingNoticeAlert) {
+                Button("Got it", role: .cancel) {
+                    dismiss()
+                }
+            } message: {
+                Text(noticeMessage)
             }
         }
     }

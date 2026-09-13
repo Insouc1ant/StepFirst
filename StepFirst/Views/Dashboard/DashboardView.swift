@@ -51,9 +51,9 @@ struct DashboardView: View {
     private var headerView: some View {
         HStack(alignment: .center) {
             Text("Dashboard")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
+                .font(.largeTitleBold)
+                .foregroundStyle(.primary)
+
             Spacer()
 
             Button {
@@ -75,7 +75,7 @@ struct DashboardView: View {
     private var progressSection: some View {
         HeroProgressRing(
             isLocked: viewModel.lockStatus,
-            timeEarned: viewModel.timeEarned,
+            timeEarned: viewModel.currentAllowanceMinutes,
             stepsWalked: viewModel.currentSteps,
             stepTarget: viewModel.stepTarget
         )
@@ -103,7 +103,7 @@ struct DashboardView: View {
                 icon: "figure.walk.motion",
                 title: "Steps Today",
                 value: "\(viewModel.liveSteps)",
-                tintColor: .orange
+                tintColor: .indigo
             ) {
                 alertTitle = "Steps Today"
                 alertMessage = "Your total physical steps recorded today. Resets everyday at midnight."
@@ -119,7 +119,7 @@ struct DashboardView: View {
                 Image(systemName: "app.shadow")
                     .foregroundStyle(.indigo)
                 Text("Restricted Apps")
-                    .font(.footnote.weight(.semibold))
+                    .font(.footnoteSemibold)
                     .foregroundStyle(.secondary)
                 
                 Spacer()
@@ -130,7 +130,7 @@ struct DashboardView: View {
                     showingInfoAlert = true
                 } label: {
                     Image(systemName: "info.circle")
-                        .font(.system(size: 20))
+                        .font(.bodyRegular)
                         .foregroundStyle(Color(uiColor: .tertiaryLabel))
                 }
             }
@@ -138,23 +138,26 @@ struct DashboardView: View {
             .padding(.top, 16)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 16) {
+                HStack(spacing: 8) {
                     ForEach(Array(viewModel.selectedCategoryTokens.enumerated()), id: \.element) { _, token in
                         Label(token)
                             .labelStyle(.iconOnly)
-                            .font(.largeTitle)
+                            .scaleEffect(1.3)
+                            .frame(width: 38, height: 38)
                     }
                     
                     ForEach(Array(viewModel.selectedApplicationTokens.enumerated()), id: \.element) { _, token in
                         Label(token)
                             .labelStyle(.iconOnly)
-                            .font(.largeTitle)
+                            .scaleEffect(1.3)
+                            .frame(width: 38, height: 38)
                     }
                 }
                 .padding(.horizontal, 16)
+                .padding(.vertical, 8)
             }
-            .frame(height: 50)
-            .padding(.bottom, 12)
+            .frame(height: 58)
+            .padding(.bottom, 8)
         }
         .background(Color(uiColor: .secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
