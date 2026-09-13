@@ -1,4 +1,4 @@
-# 👟 StepFirst — Steps to Unlock
+# 👟 StepFirst
 
 <p align="center">
   <strong>Turn your daily physical activity into your digital allowance.</strong><br>
