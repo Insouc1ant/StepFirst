@@ -31,8 +31,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "69DBC5A02F9A05A700305DEE"
-               BuildableName = "Steps to Unlock.app"
-               BlueprintName = "Steps to Unlock"
+               BuildableName = "StepFirst.app"
+               BlueprintName = "StepFirst"
                ReferencedContainer = "container:StepFirst.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,6 +44,19 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "69AABF5E3056A42900E98C30"
+               BuildableName = "StepFirstTests.xctest"
+               BlueprintName = "StepFirstTests"
+               ReferencedContainer = "container:StepFirst.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -63,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "69DBC5A02F9A05A700305DEE"
-            BuildableName = "Steps to Unlock.app"
-            BlueprintName = "Steps to Unlock"
+            BuildableName = "StepFirst.app"
+            BlueprintName = "StepFirst"
             ReferencedContainer = "container:StepFirst.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,8 +95,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "69DBC5A02F9A05A700305DEE"
-            BuildableName = "Steps to Unlock.app"
-            BlueprintName = "Steps to Unlock"
+            BuildableName = "StepFirst.app"
+            BlueprintName = "StepFirst"
             ReferencedContainer = "container:StepFirst.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
