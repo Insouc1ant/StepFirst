@@ -1,4 +1,4 @@
-# 👟 StepFirst — Steps to Unlock
+# 👟 StepFirst
 
 <p align="center">
   <strong>Turn your daily physical activity into your digital allowance.</strong><br>
@@ -35,47 +35,6 @@ Powered by Apple's **Screen Time API** (`FamilyControls`, `ManagedSettings`, `De
 
 ---
 
-## 🏛️ Architecture & Extension System
-
-StepFirst leverages a multi-target architecture utilizing **4 dedicated App ExtensionKit extensions** coordinated via a shared **App Group** (`group.com.kee.StepFirst`):
-
-```mermaid
-graph TD
-    subgraph MainApp ["📱 StepFirst Main App"]
-        UI["SwiftUI Dashboard & Settings"]
-        Pedometer["StepManager (CoreMotion CMPedometer)"]
-        VM["Dashboard & Settings ViewModels"]
-    end
-
-    subgraph AppGroup ["📦 App Group (group.com.kee.StepFirst)"]
-        SharedDefaults[("UserDefaults Suite: Step Targets, Allowance, Lock State")]
-    end
-
-    subgraph Extensions ["🧩 iOS System Extensions"]
-        Monitor["AppMonitorExtension\n(DeviceActivityMonitorExtension)"]
-        ShieldConfig["AppShieldConfig\n(ShieldConfigurationExtension)"]
-        ShieldAction["AppShieldAction\n(ShieldActionExtension)"]
-        UsageReport["AppUsageReport\n(DeviceActivityReportExtension)"]
-    end
-
-    subgraph System ["🍏 iOS SpringBoard & Screen Time Daemon"]
-        SpringBoard["SpringBoard Shield UI"]
-        ManagedStore["ManagedSettingsStore"]
-    end
-
-    UI --> VM
-    VM --> Pedometer
-    VM --> SharedDefaults
-    VM --> ManagedStore
-
-    Monitor --> SharedDefaults
-    Monitor --> ManagedStore
-
-    SpringBoard --> ShieldConfig
-    SpringBoard --> ShieldAction
-    ShieldConfig --> SharedDefaults
-    ShieldAction --> ManagedStore
-```
 
 ### Target Responsibilities:
 
