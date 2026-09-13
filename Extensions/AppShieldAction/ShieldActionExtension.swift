@@ -42,8 +42,9 @@ class ShieldActionExtension: ShieldActionDelegate {
             return
         }
 
-        let stepGoals = sharedDefaults.integer(forKey: "stepGoals")
-        let effectiveStepGoals = stepGoals > 0 ? stepGoals : 200
+        let activeTarget = sharedDefaults.integer(forKey: "activeStepTarget")
+        let configuredGoal = sharedDefaults.integer(forKey: "stepGoals")
+        let effectiveStepGoals = activeTarget > 0 ? activeTarget : (configuredGoal > 0 ? configuredGoal : 200)
         let timeEarned = sharedDefaults.integer(forKey: "timeEarned")
         let effectiveTimeEarned = timeEarned > 0 ? timeEarned : 30
         let lockActivatedAt = sharedDefaults.double(forKey: "lockActivatedAt")
@@ -57,14 +58,16 @@ class ShieldActionExtension: ShieldActionDelegate {
             return
         }
 
+        let now = Date()
         let startDate: Date
         if lockActivatedAt > 0 {
-            startDate = Date(timeIntervalSince1970: lockActivatedAt)
+            let candidateDate = Date(timeIntervalSince1970: lockActivatedAt)
+            startDate = min(candidateDate, now)
         } else {
-            startDate = Calendar.current.startOfDay(for: Date())
+            startDate = Calendar.current.startOfDay(for: now)
         }
 
-        pedometer.queryPedometerData(from: startDate, to: Date()) { [weak self] data, error in
+        pedometer.queryPedometerData(from: startDate, to: now) { [weak self] data, error in
             guard let self = self else {
                 completionHandler(.close)
                 return
@@ -102,6 +105,8 @@ class ShieldActionExtension: ShieldActionDelegate {
         // 2. Update lock status in shared storage
         sharedDefaults.set(false, forKey: "isLocked")
         sharedDefaults.set(0, forKey: "lockActivatedAt")
+        sharedDefaults.set(0, forKey: "activeStepTarget")
+        sharedDefaults.set(timeEarned, forKey: "activeAllowanceMinutes")
 
         // 3. Restart monitoring for earned screen time
         restartMonitoring(timeLimitMinutes: timeEarned, sharedDefaults: sharedDefaults)

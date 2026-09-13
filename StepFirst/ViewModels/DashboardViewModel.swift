@@ -27,8 +27,11 @@ final class DashboardViewModel {
     var lockActivatedAt: Double = 0
     var stepGoals: Double = 200
     var timeEarned: Int = 30
+    var activeStepTarget: Int = 0
+    var activeAllowanceMinutes: Int = 30
     var secondsRemaining: Int = 1800
     var baselineSteps: Int = 0
+    var isBaselineReady: Bool = false
     var initialUsage: Double = 0
     var hasSetInitialUsage: Bool = true
     var liveSteps: Int = 0
@@ -58,19 +61,34 @@ final class DashboardViewModel {
         bindStepManager()
     }
     private func loadInitialState() {
-        lockStatus = appGroupDefaults?.bool(forKey: StorageKey.isLocked) ?? false
-        usageToday = appGroupDefaults?.integer(forKey: StorageKey.usageToday) ?? 0
-        lockActivatedAt = appGroupDefaults?.double(forKey: StorageKey.lockActivatedAt) ?? 0
+        syncFromStorage()
+    }
+    
+    func syncFromStorage() {
+        let currentLocked = appGroupDefaults?.bool(forKey: StorageKey.isLocked) ?? false
+        let currentLockTime = appGroupDefaults?.double(forKey: StorageKey.lockActivatedAt) ?? 0
+        let currentUsage = appGroupDefaults?.integer(forKey: StorageKey.usageToday) ?? 0
         
-        let savedGoals = UserDefaults.standard.double(forKey: StorageKey.stepGoals)
-        stepGoals = savedGoals > 0 ? savedGoals : 200
+        let appGroupGoals = appGroupDefaults?.double(forKey: StorageKey.stepGoals) ?? 0
+        let standardGoals = UserDefaults.standard.double(forKey: StorageKey.stepGoals)
+        let effectiveGoals = appGroupGoals > 0 ? appGroupGoals : (standardGoals > 0 ? standardGoals : 200)
+        stepGoals = effectiveGoals
         
-        let savedTime = UserDefaults.standard.integer(forKey: StorageKey.timeEarned)
-        timeEarned = savedTime > 0 ? savedTime : 30
+        let appGroupTime = appGroupDefaults?.integer(forKey: StorageKey.timeEarned) ?? 0
+        let standardTime = UserDefaults.standard.integer(forKey: StorageKey.timeEarned)
+        let effectiveTime = appGroupTime > 0 ? appGroupTime : (standardTime > 0 ? standardTime : 30)
+        timeEarned = effectiveTime
+        
+        let savedActiveAllowance = appGroupDefaults?.integer(forKey: StorageKey.activeAllowanceMinutes) ?? 0
+        activeAllowanceMinutes = savedActiveAllowance > 0 ? savedActiveAllowance : effectiveTime
+        
+        let savedActiveTarget = appGroupDefaults?.integer(forKey: StorageKey.activeStepTarget) ?? 0
+        activeStepTarget = savedActiveTarget
         
         secondsRemaining = UserDefaults.standard.integer(forKey: StorageKey.secondsRemaining)
         baselineSteps = UserDefaults.standard.integer(forKey: StorageKey.baselineSteps)
         initialUsage = UserDefaults.standard.double(forKey: StorageKey.initialUsage)
+        usageToday = currentUsage
         
         if UserDefaults.standard.object(forKey: StorageKey.hasSetInitialUsage) != nil {
             hasSetInitialUsage = UserDefaults.standard.bool(forKey: StorageKey.hasSetInitialUsage)
@@ -81,6 +99,26 @@ final class DashboardViewModel {
         if let loadedSelection = screenTimeManager.loadSelection() {
             selectedApps = loadedSelection
         }
+        
+        let lockStateChanged = (self.lockStatus != currentLocked)
+        self.lockStatus = currentLocked
+        self.lockActivatedAt = currentLockTime
+        
+        if currentLocked {
+            if activeStepTarget == 0 {
+                activeStepTarget = Int(stepGoals)
+                appGroupDefaults?.set(activeStepTarget, forKey: StorageKey.activeStepTarget)
+            }
+            if lockStateChanged || baselineSteps == 0 {
+                refreshBaselineStepsForCurrentLock()
+            }
+        } else {
+            activeStepTarget = 0
+            baselineSteps = 0
+            isBaselineReady = true
+        }
+        
+        recalculateAllowance()
     }
     
     private func bindStepManager() {
@@ -95,15 +133,23 @@ final class DashboardViewModel {
     
     // MARK: - Computed Properties (Formats data for the View)
     var currentSteps: Int {
-        max(0, liveSteps - baselineSteps)
+        guard isBaselineReady else { return 0 }
+        return max(0, liveSteps - baselineSteps)
     }
     
     var stepTarget: Int {
-        Int(stepGoals)
+        if lockStatus && activeStepTarget > 0 {
+            return activeStepTarget
+        }
+        return Int(stepGoals)
+    }
+    
+    var currentAllowanceMinutes: Int {
+        activeAllowanceMinutes > 0 ? activeAllowanceMinutes : timeEarned
     }
     
     var allowanceSeconds: Int {
-        timeEarned * 60
+        currentAllowanceMinutes * 60
     }
     
     var selectedCategoryTokens: [ActivityCategoryToken] {
@@ -125,23 +171,16 @@ final class DashboardViewModel {
     // MARK: - Business Logic & Intent Methods
     
     func onAppear() {
-        selectedApps = screenTimeManager.loadSelection() ?? FamilyActivitySelection()
+        syncFromStorage()
         stepManager.startTracking()
-        recalculateAllowance()
 
-        if lockStatus {
-            refreshBaselineStepsForCurrentLock()
-        } else {
+        if !lockStatus {
             deviceActivityManager.startMonitoring(timeLimitMinutes: timeEarned)
         }
     }
     
     func refreshDashboard() {
-        selectedApps = screenTimeManager.loadSelection() ?? FamilyActivitySelection()
-        recalculateAllowance()
-        if lockStatus {
-            refreshBaselineStepsForCurrentLock()
-        }
+        syncFromStorage()
     }
     
     func handleLockStatusChange(isLocked: Bool) {
@@ -149,14 +188,24 @@ final class DashboardViewModel {
         appGroupDefaults?.set(isLocked, forKey: StorageKey.isLocked)
         
         if isLocked {
+            let now = Date().timeIntervalSince1970
+            lockActivatedAt = now
+            activeStepTarget = Int(stepGoals)
+            appGroupDefaults?.set(now, forKey: StorageKey.lockActivatedAt)
+            appGroupDefaults?.set(activeStepTarget, forKey: StorageKey.activeStepTarget)
             secondsRemaining = 0
             UserDefaults.standard.set(0, forKey: StorageKey.secondsRemaining)
             refreshBaselineStepsForCurrentLock()
         } else {
             baselineSteps = 0
             lockActivatedAt = 0
+            activeStepTarget = 0
+            isBaselineReady = true
+            activeAllowanceMinutes = timeEarned
             UserDefaults.standard.set(0, forKey: StorageKey.baselineSteps)
             appGroupDefaults?.set(0, forKey: StorageKey.lockActivatedAt)
+            appGroupDefaults?.set(0, forKey: StorageKey.activeStepTarget)
+            appGroupDefaults?.set(timeEarned, forKey: StorageKey.activeAllowanceMinutes)
         }
     }
     
@@ -176,13 +225,8 @@ final class DashboardViewModel {
         timeEarned = newTimeEarned
         UserDefaults.standard.set(newTimeEarned, forKey: StorageKey.timeEarned)
         appGroupDefaults?.set(newTimeEarned, forKey: StorageKey.timeEarned)
-        recalculateAllowance()
-        if !lockStatus {
-            initialUsage = Double(usageToday)
-            UserDefaults.standard.set(initialUsage, forKey: StorageKey.initialUsage)
-            appGroupDefaults?.set(initialUsage, forKey: StorageKey.initialUsage)
-            deviceActivityManager.startMonitoring(timeLimitMinutes: newTimeEarned)
-        }
+        // If an allowance is currently running, it continues with activeAllowanceMinutes.
+        // The new timeEarned takes effect on the next unlock cycle.
     }
     
     func recalculateAllowance() {
@@ -198,28 +242,44 @@ final class DashboardViewModel {
     
     func refreshBaselineStepsForCurrentLock() {
         guard lockActivatedAt > 0 else {
-            baselineSteps = stepManager.liveSteps
-            UserDefaults.standard.set(baselineSteps, forKey: StorageKey.baselineSteps)
-            checkUnlockEligibility()
+            if stepManager.liveSteps > 0 {
+                baselineSteps = stepManager.liveSteps
+                UserDefaults.standard.set(baselineSteps, forKey: StorageKey.baselineSteps)
+                isBaselineReady = true
+                checkUnlockEligibility()
+            }
             return
         }
 
         let lockDate = Date(timeIntervalSince1970: lockActivatedAt)
+        isBaselineReady = false
         Task {
             let fetchedBaseline = await stepManager.stepsToday(upTo: lockDate)
             self.baselineSteps = fetchedBaseline
             UserDefaults.standard.set(fetchedBaseline, forKey: StorageKey.baselineSteps)
+            self.isBaselineReady = true
             self.checkUnlockEligibility()
         }
     }
     
     func checkUnlockEligibility() {
         guard lockStatus else { return }
+        guard isBaselineReady else { return }
         guard stepTarget > 0, currentSteps >= stepTarget else { return }
 
         // Unlock apps
         lockStatus = false
+        baselineSteps = 0
+        lockActivatedAt = 0
+        activeStepTarget = 0
+        isBaselineReady = true
+        activeAllowanceMinutes = timeEarned
+        
         appGroupDefaults?.set(false, forKey: StorageKey.isLocked)
+        appGroupDefaults?.set(0, forKey: StorageKey.lockActivatedAt)
+        appGroupDefaults?.set(0, forKey: StorageKey.activeStepTarget)
+        appGroupDefaults?.set(timeEarned, forKey: StorageKey.activeAllowanceMinutes)
+        UserDefaults.standard.set(0, forKey: StorageKey.baselineSteps)
         
         initialUsage = Double(usageToday)
         UserDefaults.standard.set(initialUsage, forKey: StorageKey.initialUsage)

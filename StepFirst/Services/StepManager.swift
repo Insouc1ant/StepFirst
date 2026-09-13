@@ -80,7 +80,9 @@ final class UnlockManager {
         isCheckingUnlock = true
         defer { isCheckingUnlock = false }
 
-        let stepGoal = Int(UserDefaults.standard.double(forKey: StorageKey.stepGoals))
+        let appGroupGoal = appGroupDefaults?.double(forKey: StorageKey.stepGoals) ?? 0
+        let standardGoal = UserDefaults.standard.double(forKey: StorageKey.stepGoals)
+        let stepGoal = Int(appGroupGoal > 0 ? appGroupGoal : (standardGoal > 0 ? standardGoal : 200))
         guard stepGoal > 0 else { return }
 
         let lockDate = Date(timeIntervalSince1970: lockActivatedAt)
@@ -90,7 +92,9 @@ final class UnlockManager {
 
         guard walkedSinceLock >= stepGoal else { return }
 
-        let timeEarned = UserDefaults.standard.integer(forKey: StorageKey.timeEarned)
+        let appGroupTime = appGroupDefaults?.integer(forKey: StorageKey.timeEarned) ?? 0
+        let standardTime = UserDefaults.standard.integer(forKey: StorageKey.timeEarned)
+        let timeEarned = appGroupTime > 0 ? appGroupTime : (standardTime > 0 ? standardTime : 30)
         let selectedAppsUsageToday = appGroupDefaults?.integer(forKey: StorageKey.usageToday) ?? 0
 
         appGroupDefaults?.set(false, forKey: StorageKey.isLocked)

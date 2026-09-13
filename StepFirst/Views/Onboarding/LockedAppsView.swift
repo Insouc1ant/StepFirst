@@ -13,8 +13,7 @@ struct LockedAppsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Which apps distract\nyou?")
-                .font(.largeTitle)
-                .fontWeight(.bold)
+                .font(.largeTitleBold)
                 .foregroundStyle(.primary)
                 .padding(.top, 60)
                 .padding(.leading, 16)
@@ -36,7 +35,7 @@ struct LockedAppsView: View {
             } label: {
                 HStack(spacing: 16) {
                     Text(viewModel.hasValidSelection ? "\(viewModel.totalSelectionsCount) Selections Added" : "Select Apps to Restrict")
-                        .font(.body)
+                        .font(.bodyRegular)
                         .foregroundStyle(.primary)
                         .tint(.indigo)
                     
@@ -47,8 +46,7 @@ struct LockedAppsView: View {
                             .tint(.indigo)
                     } else {
                         Image(systemName: "chevron.right")
-                            .font(.headline)
-                            .fontWeight(.semibold)
+                            .font(.headlineSemibold)
                             .foregroundStyle(Color(uiColor: .tertiaryLabel))
                     }
                 }
@@ -65,7 +63,7 @@ struct LockedAppsView: View {
                 Spacer().frame(height: 20)
 
                 Text("Selected Items")
-                    .font(.headline)
+                    .font(.headlineSemibold)
                     .foregroundStyle(.primary)
                     .padding(.horizontal, 16)
                     .padding(.bottom, 8)
@@ -78,8 +76,8 @@ struct LockedAppsView: View {
                             VStack(spacing: 0) {
                                 HStack(spacing: 12) {
                                     Label(token)
-                                        .labelStyle(.titleAndIcon)
-                                        .font(.body)
+                                        .labelStyle(.scaledIcon)
+                                        .font(.footnoteRegular)
                                         .foregroundStyle(.primary)
 
                                     Spacer()
@@ -88,7 +86,7 @@ struct LockedAppsView: View {
                                 .padding(.horizontal, 16)
 
                                 if index < viewModel.selectedCategoryTokens.count - 1 || !viewModel.selectedApplicationTokens.isEmpty {
-                                    Divider().padding(.leading, 52)
+                                    Divider().padding(.leading, 58)
                                 }
                             }
                         }
@@ -98,8 +96,8 @@ struct LockedAppsView: View {
                             VStack(spacing: 0) {
                                 HStack(spacing: 12) {
                                     Label(token)
-                                        .labelStyle(.titleAndIcon)
-                                        .font(.body)
+                                        .labelStyle(.scaledIcon)
+                                        .font(.footnoteRegular)
                                         .foregroundStyle(.primary)
 
                                     Spacer()
@@ -108,7 +106,7 @@ struct LockedAppsView: View {
                                 .padding(.horizontal, 16)
 
                                 if index < viewModel.selectedApplicationTokens.count - 1 {
-                                    Divider().padding(.leading, 52)
+                                    Divider().padding(.leading, 58)
                                 }
                             }
                         }
@@ -128,7 +126,7 @@ struct LockedAppsView: View {
         .safeAreaInset(edge: .bottom) {
             NavigationLink(destination: SetPlanView(viewModel: viewModel)) {
                 Text("Continue")
-                    .font(.headline)
+                    .font(.headlineSemibold)
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)

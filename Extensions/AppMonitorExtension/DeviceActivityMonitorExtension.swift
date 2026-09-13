@@ -47,6 +47,9 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         // Update lock status for the main app UI and widget
         sharedDefaults.set(true, forKey: "isLocked")
         sharedDefaults.set(Date().timeIntervalSince1970, forKey: "lockActivatedAt")
+        let stepGoals = sharedDefaults.integer(forKey: "stepGoals")
+        let effectiveStepGoals = stepGoals > 0 ? stepGoals : 200
+        sharedDefaults.set(effectiveStepGoals, forKey: "activeStepTarget")
         
         print("Threshold reached for \(event.rawValue) — apps re-locked.")
         

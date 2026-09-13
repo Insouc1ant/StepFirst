@@ -108,6 +108,7 @@
 				AppMonitorExtension/Info.plist,
 				AppShieldAction/Info.plist,
 				AppShieldAction/ShieldActionExtension.swift,
+				AppShieldConfig/AppLogo.png,
 				AppShieldConfig/Info.plist,
 				AppShieldConfig/ShieldConfigurationExtension.swift,
 				AppUsageReport/AppUsageReport.swift,
@@ -120,23 +121,45 @@
 		6997DE3D3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppUsageReport" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				AppUsageReport/AppUsageReport.swift,
-				AppUsageReport/TotalActivityReport.swift,
-				AppUsageReport/TotalActivityView.swift,
+				AppMonitorExtension/DeviceActivityMonitorExtension.swift,
+				AppMonitorExtension/Info.plist,
+				AppShieldAction/Info.plist,
+				AppShieldAction/ShieldActionExtension.swift,
+				AppShieldConfig/AppLogo.png,
+				AppShieldConfig/Info.plist,
+				AppShieldConfig/ShieldConfigurationExtension.swift,
+				AppUsageReport/Info.plist,
 			);
 			target = 697F9F9E3045656300B6B259 /* AppUsageReport */;
 		};
 		6997DE3E3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppShieldAction" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				AppShieldAction/ShieldActionExtension.swift,
+				AppMonitorExtension/DeviceActivityMonitorExtension.swift,
+				AppMonitorExtension/Info.plist,
+				AppShieldAction/Info.plist,
+				AppShieldConfig/AppLogo.png,
+				AppShieldConfig/Info.plist,
+				AppShieldConfig/ShieldConfigurationExtension.swift,
+				AppUsageReport/AppUsageReport.swift,
+				AppUsageReport/Info.plist,
+				AppUsageReport/TotalActivityReport.swift,
+				AppUsageReport/TotalActivityView.swift,
 			);
 			target = 6927E3C43049676F00D5AE61 /* AppShieldAction */;
 		};
 		6997DE3F3053F98500FC13E3 /* Exceptions for "Extensions" folder in "AppShieldConfig" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				AppShieldConfig/ShieldConfigurationExtension.swift,
+				AppMonitorExtension/DeviceActivityMonitorExtension.swift,
+				AppMonitorExtension/Info.plist,
+				AppShieldAction/Info.plist,
+				AppShieldAction/ShieldActionExtension.swift,
+				AppShieldConfig/Info.plist,
+				AppUsageReport/AppUsageReport.swift,
+				AppUsageReport/Info.plist,
+				AppUsageReport/TotalActivityReport.swift,
+				AppUsageReport/TotalActivityView.swift,
 			);
 			target = 6927E3D63049678B00D5AE61 /* AppShieldConfig */;
 		};
@@ -272,6 +295,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				6997DE233053F96000FC13E3 /* Extensions */,
+			);
 			name = AppShieldAction;
 			packageProductDependencies = (
 			);
@@ -290,6 +316,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6997DE233053F96000FC13E3 /* Extensions */,
 			);
 			name = AppShieldConfig;
 			packageProductDependencies = (
@@ -331,6 +360,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6997DE233053F96000FC13E3 /* Extensions */,
 			);
 			name = AppUsageReport;
 			packageProductDependencies = (
@@ -989,6 +1021,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_UIImageName = SplashScreen;
+				INFOPLIST_KEY_UILaunchScreen_UIImageRespectsSafeArea = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1024,6 +1058,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_UIImageName = SplashScreen;
+				INFOPLIST_KEY_UILaunchScreen_UIImageRespectsSafeArea = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (

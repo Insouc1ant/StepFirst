@@ -9,17 +9,17 @@ struct StatusIndicatorView: View {
         VStack(spacing: 6) {
             HStack(spacing: 8) {
                 Text(isLocked ? "Apps Locked" : "Apps Available")
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.subheadlineSemibold)
             }
             .foregroundStyle(isLocked ? Color(uiColor: .systemRed) : Color(uiColor: .systemGreen))
 
             Text(isLocked
                  ? "Walk \(stepTarget) steps to unlock your restricted apps\nfor \(timeEarned) minutes."
                  : "Your restricted apps will automatically lock when\nthis timer reaches zero.")
-                .font(.system(size: 13, weight: .regular))
+                .font(.footnoteRegular)
                 .foregroundStyle(Color(uiColor: .systemGray))
                 .multilineTextAlignment(.center)
-                .frame(height: 36, alignment: .top)
+                .frame(minHeight: 36, alignment: .top)
                 .padding(.horizontal, 32)
         }
     }

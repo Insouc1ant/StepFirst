@@ -13,12 +13,12 @@ struct SectionHeader: View {
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                 Text(title)
-                    .font(.footnote.weight(.bold)) // Native 13pt Bold
+                    .font(.footnoteBold)
             }
             .foregroundStyle(.secondary)
             
             Text(subtitle)
-                .font(.footnote) // Native 13pt Regular
+                .font(.footnoteRegular)
                 .foregroundStyle(.secondary)
                 .padding(.bottom, 12)
         }

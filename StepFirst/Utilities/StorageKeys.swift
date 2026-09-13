@@ -15,6 +15,8 @@ enum StorageKey {
     static let timeEarned = "timeEarned"
     static let isLocked = "isLocked"
     static let lockActivatedAt = "lockActivatedAt"
+    static let activeStepTarget = "activeStepTarget"
+    static let activeAllowanceMinutes = "activeAllowanceMinutes"
     static let usageToday = "selectedAppsUsageToday"
     static let savedAppTokens = "SavedAppTokens"
     
