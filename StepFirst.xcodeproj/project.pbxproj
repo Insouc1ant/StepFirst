@@ -107,12 +107,15 @@
 			membershipExceptions = (
 				AppMonitorExtension/Info.plist,
 				AppShieldAction/Info.plist,
+				AppShieldAction/PrivacyInfo.xcprivacy,
 				AppShieldAction/ShieldActionExtension.swift,
 				AppShieldConfig/AppLogo.png,
 				AppShieldConfig/Info.plist,
+				AppShieldConfig/PrivacyInfo.xcprivacy,
 				AppShieldConfig/ShieldConfigurationExtension.swift,
 				AppUsageReport/AppUsageReport.swift,
 				AppUsageReport/Info.plist,
+				AppUsageReport/PrivacyInfo.xcprivacy,
 				AppUsageReport/TotalActivityReport.swift,
 				AppUsageReport/TotalActivityView.swift,
 			);
@@ -123,10 +126,13 @@
 			membershipExceptions = (
 				AppMonitorExtension/DeviceActivityMonitorExtension.swift,
 				AppMonitorExtension/Info.plist,
+				AppMonitorExtension/PrivacyInfo.xcprivacy,
 				AppShieldAction/Info.plist,
+				AppShieldAction/PrivacyInfo.xcprivacy,
 				AppShieldAction/ShieldActionExtension.swift,
 				AppShieldConfig/AppLogo.png,
 				AppShieldConfig/Info.plist,
+				AppShieldConfig/PrivacyInfo.xcprivacy,
 				AppShieldConfig/ShieldConfigurationExtension.swift,
 				AppUsageReport/Info.plist,
 			);
@@ -137,12 +143,15 @@
 			membershipExceptions = (
 				AppMonitorExtension/DeviceActivityMonitorExtension.swift,
 				AppMonitorExtension/Info.plist,
+				AppMonitorExtension/PrivacyInfo.xcprivacy,
 				AppShieldAction/Info.plist,
 				AppShieldConfig/AppLogo.png,
 				AppShieldConfig/Info.plist,
+				AppShieldConfig/PrivacyInfo.xcprivacy,
 				AppShieldConfig/ShieldConfigurationExtension.swift,
 				AppUsageReport/AppUsageReport.swift,
 				AppUsageReport/Info.plist,
+				AppUsageReport/PrivacyInfo.xcprivacy,
 				AppUsageReport/TotalActivityReport.swift,
 				AppUsageReport/TotalActivityView.swift,
 			);
@@ -153,11 +162,14 @@
 			membershipExceptions = (
 				AppMonitorExtension/DeviceActivityMonitorExtension.swift,
 				AppMonitorExtension/Info.plist,
+				AppMonitorExtension/PrivacyInfo.xcprivacy,
 				AppShieldAction/Info.plist,
+				AppShieldAction/PrivacyInfo.xcprivacy,
 				AppShieldAction/ShieldActionExtension.swift,
 				AppShieldConfig/Info.plist,
 				AppUsageReport/AppUsageReport.swift,
 				AppUsageReport/Info.plist,
+				AppUsageReport/PrivacyInfo.xcprivacy,
 				AppUsageReport/TotalActivityReport.swift,
 				AppUsageReport/TotalActivityView.swift,
 			);
@@ -607,8 +619,8 @@
 				INFOPLIST_FILE = Extensions/AppShieldAction/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AppShieldAction;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMotionUsageDescription = "Steps to Unlock needs your motion data to check if you walked enough steps to unlock your apps.";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				INFOPLIST_KEY_NSMotionUsageDescription = "StepFirst needs your motion data to check if you walked enough steps to unlock your apps.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -623,7 +635,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -638,15 +650,15 @@
 				INFOPLIST_FILE = Extensions/AppShieldAction/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AppShieldAction;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMotionUsageDescription = "Steps to Unlock needs your motion data to check if you walked enough steps to unlock your apps.";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				INFOPLIST_KEY_NSMotionUsageDescription = "StepFirst needs your motion data to check if you walked enough steps to unlock your apps.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kee.Steps-to-Unlock.AppShieldAction";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst.AppShieldAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -654,7 +666,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -669,7 +681,7 @@
 				INFOPLIST_FILE = Extensions/AppShieldConfig/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AppShieldConfig;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -684,7 +696,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -699,14 +711,14 @@
 				INFOPLIST_FILE = Extensions/AppShieldConfig/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AppShieldConfig;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kee.Steps-to-Unlock.AppShieldConfig";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst.AppShieldConfig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -714,7 +726,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -729,7 +741,7 @@
 				INFOPLIST_FILE = Extensions/AppMonitorExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AppMonitorExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -744,7 +756,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -759,7 +771,7 @@
 				INFOPLIST_FILE = Extensions/AppMonitorExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AppMonitorExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -774,7 +786,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -789,7 +801,7 @@
 				INFOPLIST_FILE = Extensions/AppUsageReport/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AppUsageReport;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -804,7 +816,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -819,14 +831,14 @@
 				INFOPLIST_FILE = Extensions/AppUsageReport/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AppUsageReport;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kee.Steps-to-Unlock.AppUsageReport";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst.AppUsageReport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -834,7 +846,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -846,7 +858,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5VZU5CTZS2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirstTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -855,7 +867,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StepFirst.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StepFirst";
 			};
 			name = Debug;
@@ -868,7 +880,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5VZU5CTZS2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirstTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -877,7 +889,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StepFirst.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StepFirst";
 			};
 			name = Release;
@@ -935,7 +947,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -994,7 +1006,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1017,14 +1029,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = StepFirst;
-				INFOPLIST_KEY_NSMotionUsageDescription = "Steps to Unlock needs your motion data to track steps and unlock your apps";
+				INFOPLIST_KEY_NSMotionUsageDescription = "StepFirst needs your motion data to track steps and unlock your apps";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_UIImageName = SplashScreen;
 				INFOPLIST_KEY_UILaunchScreen_UIImageRespectsSafeArea = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1033,12 +1044,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1054,14 +1069,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = StepFirst;
-				INFOPLIST_KEY_NSMotionUsageDescription = "Steps to Unlock needs your motion data to track steps and unlock your apps";
+				INFOPLIST_KEY_NSMotionUsageDescription = "StepFirst needs your motion data to track steps and unlock your apps";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_UIImageName = SplashScreen;
 				INFOPLIST_KEY_UILaunchScreen_UIImageRespectsSafeArea = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1070,12 +1084,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kee.StepFirst;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

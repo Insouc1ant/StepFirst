@@ -115,7 +115,7 @@ struct ScreenTimeEarnedCard: View {
                 Spacer()
                 
                 Picker("Reward Time", selection: $timeEarned) {
-                    Text("1 Minute").tag(1)
+                    Text("5 Minutes").tag(5)
                     Text("15 Minutes").tag(15)
                     Text("30 Minutes").tag(30)
                     Text("45 Minutes").tag(45)
