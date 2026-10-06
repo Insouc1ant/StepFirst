@@ -7,7 +7,7 @@ struct HeroProgressRing: View {
     let stepTarget: Int
     
     var ringColor: Color {
-        !isLocked ? .orange : .indigo
+        !isLocked ? .indigo : .orange
     }
     
     var progressAmount: Double {
