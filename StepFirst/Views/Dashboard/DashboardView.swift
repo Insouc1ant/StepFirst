@@ -103,7 +103,7 @@ struct DashboardView: View {
                 icon: "figure.walk.motion",
                 title: "Steps Today",
                 value: "\(viewModel.liveSteps)",
-                tintColor: .indigo
+                tintColor: .orange
             ) {
                 alertTitle = "Steps Today"
                 alertMessage = "Your total physical steps recorded today. Resets everyday at midnight."

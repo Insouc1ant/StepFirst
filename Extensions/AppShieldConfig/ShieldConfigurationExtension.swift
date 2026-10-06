@@ -84,11 +84,11 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
                 color: .secondaryLabel
             ),
             primaryButtonLabel: ShieldConfiguration.Label(
-                text: "Check Steps & Unlock",
+                text: "Check Steps",
                 color: .white
             ),
             secondaryButtonLabel: ShieldConfiguration.Label(
-                text: "Continue Walking",
+                text: "Not Now",
                 color: .label
             )
         )

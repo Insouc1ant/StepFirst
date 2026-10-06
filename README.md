@@ -28,7 +28,7 @@ Powered by Apple's **Screen Time API** (`FamilyControls`, `ManagedSettings`, `De
 - 🔒 **Native App Shielding**: Restrict entire categories or individual apps directly using Apple's official `FamilyControls` picker.
 - 🚶‍♂️ **Step-Powered Unlocks**: Set your step target (e.g., 50 to 2,000 steps). Complete your walking goal to unlock restricted apps.
 - ⏱️ **Earned Allowance Duration**: Configure how much screen time you earn per completed goal (e.g., 15 mins, 30 mins, 1 hour). When your allowance timer reaches zero, apps automatically re-lock.
-- 🛡️ **Custom SpringBoard Shield**: When an app is locked, a native iOS system shield intercepts the launch with your app's branding, current step goal, and quick actions ("Check Steps & Unlock" or "Continue Walking").
+- 🛡️ **Custom SpringBoard Shield**: When an app is locked, a native iOS system shield intercepts the launch with your app's branding, current step goal, and quick actions ("Check Steps" or "Not Now").
 - 📊 **Real-Time Dashboard & Ring Progress**: Clean 280pt hero progress ring tracking steps walked, active allowance countdown, and restricted app quick-views.
 - 🎨 **Strict Apple HIG Dynamic Type**: 100% compliant with Apple Human Interface Guidelines typography, scaling seamlessly with system text size settings.
 - 🛡️ **Privacy-First & On-Device**: Zero trackers, zero analytics servers. Step counting and app tokens are handled locally using sandboxed iOS system frameworks.
@@ -41,7 +41,7 @@ Powered by Apple's **Screen Time API** (`FamilyControls`, `ManagedSettings`, `De
 1. **StepFirst (Main App)**: User interface, onboarding flow, step-goal customization, allowance timers, and live `CMPedometer` tracking.
 2. **AppMonitorExtension (`DeviceActivityMonitor`)**: Monitors device activity intervals in the background to handle allowance countdowns and trigger locks even when the app is terminated.
 3. **AppShieldConfig (`ShieldConfigurationDataSource`)**: Configures the appearance of Apple's SpringBoard shield (app icon squircle, title, customized goal copy, and adaptive button labels).
-4. **AppShieldAction (`ShieldActionDelegate`)**: Intercepts button taps directly on the system shield ("Check Steps & Unlock" opens StepFirst via deep link; "Continue Walking" closes the app).
+4. **AppShieldAction (`ShieldActionDelegate`)**: Intercepts button taps directly on the system shield ("Check Steps" opens StepFirst via deep link; "Not Now" closes the app).
 5. **AppUsageReport (`DeviceActivityReport`)**: Sandboxed extension for rendering privacy-preserving app usage statistics.
 
 ---
