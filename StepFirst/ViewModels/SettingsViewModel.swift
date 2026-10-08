@@ -38,11 +38,11 @@ final class SettingsViewModel {
     
     // MARK: - Computed Properties for the UI List
     var selectedCategoryTokens: [ActivityCategoryToken] {
-        Array(selectedApps.categoryTokens)
+        selectedApps.categoryTokens.sortedByEncoding()
     }
 
     var selectedApplicationTokens: [ApplicationToken] {
-        Array(selectedApps.applicationTokens)
+        selectedApps.applicationTokens.sortedByEncoding()
     }
 
     var totalSelectionsCount: Int {

@@ -7,70 +7,77 @@ struct LockedAppsView: View {
     @State private var viewModel = OnboardingViewModel()
     
     // MARK: - UI Layout Constants
-    private let rowHeight: CGFloat = 56
-    private let maxListHeight: CGFloat = 280
+    @ScaledMetric(relativeTo: .footnote) private var rowHeight: CGFloat = 56
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("Which apps distract\nyou?")
-                .font(.largeTitleBold)
-                .foregroundStyle(.primary)
-                .padding(.top, 60)
-                .padding(.leading, 16)
-            
-            Spacer().frame(height: 32)
-            
-            SectionHeader(
-                icon: "app.shadow",
-                title: "RESTRICTED APPS",
-                subtitle: "Select apps to restrict once your allowance is reached.\nThese apps require walking to unlock."
-            )
-            .padding(.top, 12)
-            .padding(.leading, 16)
-            
-            Spacer().frame(height: 8)
-            
-            Button {
-                viewModel.requestPermissionsAndShowPicker()
-            } label: {
-                HStack(spacing: 16) {
-                    Text(viewModel.hasValidSelection ? "\(viewModel.totalSelectionsCount) Selections Added" : "Select Apps to Restrict")
-                        .font(.bodyRegular)
-                        .foregroundStyle(.primary)
-                        .tint(.indigo)
-                    
-                    Spacer()
-                    
-                    if viewModel.isRequestingPermission {
-                        ProgressView()
-                            .tint(.indigo)
-                    } else {
-                        Image(systemName: "chevron.right")
-                            .font(.headlineSemibold)
-                            .foregroundStyle(Color(uiColor: .tertiaryLabel))
-                    }
-                }
-                .padding(.vertical, 16)
-                .padding(.horizontal, 16)
-                .background(Color(uiColor: .secondarySystemGroupedBackground))
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-            }
-            .disabled(viewModel.isRequestingPermission)
-            .padding(.horizontal, 16)
-
-            // 📦 COMBINED LIST: Categories + Individual Apps
-            if viewModel.hasValidSelection {
-                Spacer().frame(height: 20)
-
-                Text("Selected Items")
-                    .font(.headlineSemibold)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("Which apps distract you?")
+                    .font(.largeTitleBold)
                     .foregroundStyle(.primary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.top, 60)
                     .padding(.horizontal, 16)
-                    .padding(.bottom, 8)
 
-                ScrollView(showsIndicators: viewModel.totalSelectionsCount > 4) {
+                Spacer().frame(height: 32)
+
+                if viewModel.stepAvailability != .available {
+                    StepAvailabilityNotice(availability: viewModel.stepAvailability)
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 24)
+                }
+
+                SectionHeader(
+                    icon: "app.shadow",
+                    title: "RESTRICTED APPS",
+                    subtitle: "Select apps to restrict once your allowance is reached. These apps require walking to unlock."
+                )
+                .padding(.top, 12)
+                .padding(.horizontal, 16)
+
+                Spacer().frame(height: 8)
+
+                Button {
+                    viewModel.requestPermissionsAndShowPicker()
+                } label: {
+                    HStack(spacing: 16) {
+                        Text(viewModel.hasValidSelection ? "\(viewModel.totalSelectionsCount) Selections Added" : "Select Apps to Restrict")
+                            .font(.bodyRegular)
+                            .foregroundStyle(.primary)
+                            .tint(.indigo)
+                            .multilineTextAlignment(.leading)
+
+                        Spacer()
+
+                        if viewModel.isRequestingPermission {
+                            ProgressView()
+                                .tint(.indigo)
+                        } else {
+                            Image(systemName: "chevron.right")
+                                .font(.headlineSemibold)
+                                .foregroundStyle(Color(uiColor: .tertiaryLabel))
+                        }
+                    }
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 16)
+                    .background(Color(uiColor: .secondarySystemGroupedBackground))
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                }
+                .disabled(viewModel.isRequestingPermission)
+                .padding(.horizontal, 16)
+
+                // 📦 COMBINED LIST: Categories + Individual Apps
+                if viewModel.hasValidSelection {
+                    Spacer().frame(height: 20)
+
+                    Text("Selected Items")
+                        .font(.headlineSemibold)
+                        .foregroundStyle(.primary)
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 8)
+
                     VStack(spacing: 0) {
-                        
+
                         // 1. Loop through Categories First
                         ForEach(Array(viewModel.selectedCategoryTokens.enumerated()), id: \.element) { index, token in
                             VStack(spacing: 0) {
@@ -82,7 +89,7 @@ struct LockedAppsView: View {
 
                                     Spacer()
                                 }
-                                .frame(height: rowHeight)
+                                .frame(minHeight: rowHeight)
                                 .padding(.horizontal, 16)
 
                                 if index < viewModel.selectedCategoryTokens.count - 1 || !viewModel.selectedApplicationTokens.isEmpty {
@@ -90,7 +97,7 @@ struct LockedAppsView: View {
                                 }
                             }
                         }
-                        
+
                         // 2. Loop through Individual Apps Second
                         ForEach(Array(viewModel.selectedApplicationTokens.enumerated()), id: \.element) { index, token in
                             VStack(spacing: 0) {
@@ -102,7 +109,7 @@ struct LockedAppsView: View {
 
                                     Spacer()
                                 }
-                                .frame(height: rowHeight)
+                                .frame(minHeight: rowHeight)
                                 .padding(.horizontal, 16)
 
                                 if index < viewModel.selectedApplicationTokens.count - 1 {
@@ -111,17 +118,19 @@ struct LockedAppsView: View {
                             }
                         }
                     }
+                    .background(Color(uiColor: .secondarySystemGroupedBackground))
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 16)
                 }
-                .frame(height: min(CGFloat(viewModel.totalSelectionsCount) * rowHeight, maxListHeight))
-                .background(Color(uiColor: .secondarySystemGroupedBackground))
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                .padding(.horizontal, 16)
-                .padding(.bottom, 16)
             }
-
-            Spacer()
+            .readableWidth()
         }
+        .scrollBounceBehavior(.basedOnSize)
         .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
+        .onAppear {
+            viewModel.refreshStepAvailability()
+        }
 
         .safeAreaInset(edge: .bottom) {
             NavigationLink(destination: SetPlanView(viewModel: viewModel)) {
@@ -135,6 +144,10 @@ struct LockedAppsView: View {
             .padding(.horizontal, 24)
             .padding(.bottom, 16)
             .disabled(!viewModel.hasValidSelection)
+            .readableWidth()
+            .padding(.top, 12)
+            .dynamicTypeSize(...DynamicTypeSize.accessibility2)
+            .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
         }
         
         .familyActivityPicker(

@@ -29,19 +29,23 @@ final class OnboardingViewModel {
     // MARK: - Screen 2 State (Goal & Reward Selection)
     var stepGoals: Double = 200
     var timeEarned: Int = 30
+
+    // MARK: - Step Counting Availability
+    var stepAvailability: StepAvailability = .available
     
     // MARK: - Dependencies (Injectable Services)
     @ObservationIgnored private let screenTimeManager: ScreenTimeManager
     @ObservationIgnored private let deviceActivityManager: DeviceActivityManager
     @ObservationIgnored private let notificationManager: NotificationManager
+    @ObservationIgnored private let stepAvailabilityProvider: () -> StepAvailability
     
     // MARK: - Computed Properties for Selected Apps UI
     var selectedCategoryTokens: [ActivityCategoryToken] {
-        Array(selectedApps.categoryTokens)
+        selectedApps.categoryTokens.sortedByEncoding()
     }
 
     var selectedApplicationTokens: [ApplicationToken] {
-        Array(selectedApps.applicationTokens)
+        selectedApps.applicationTokens.sortedByEncoding()
     }
 
     var totalSelectionsCount: Int {
@@ -56,11 +60,18 @@ final class OnboardingViewModel {
     init(
         screenTimeManager: ScreenTimeManager? = nil,
         deviceActivityManager: DeviceActivityManager? = nil,
-        notificationManager: NotificationManager? = nil
+        notificationManager: NotificationManager? = nil,
+        stepAvailabilityProvider: (() -> StepAvailability)? = nil
     ) {
         self.screenTimeManager = screenTimeManager ?? .shared
         self.deviceActivityManager = deviceActivityManager ?? .shared
         self.notificationManager = notificationManager ?? .shared
+        self.stepAvailabilityProvider = stepAvailabilityProvider ?? { StepAvailability.current }
+        self.stepAvailability = self.stepAvailabilityProvider()
+    }
+
+    func refreshStepAvailability() {
+        stepAvailability = stepAvailabilityProvider()
     }
     
     // MARK: - Screen 1 Actions
@@ -108,8 +119,11 @@ final class OnboardingViewModel {
         UserDefaults.standard.set(true, forKey: StorageKey.hasSetInitialUsage)
         UserDefaults.standard.set(0, forKey: StorageKey.baselineSteps)
 
-        // 4. Start background monitoring
-        deviceActivityManager.startMonitoring(timeLimitMinutes: timeEarned)
+        // 4. Start background monitoring, only where steps can be counted so apps can always be unlocked
+        refreshStepAvailability()
+        if stepAvailability == .available {
+            deviceActivityManager.startMonitoring(timeLimitMinutes: timeEarned)
+        }
 
         // 5. Request notifications and flip the switch to open Dashboard
         notificationManager.requestPermission { _ in

@@ -14,8 +14,7 @@ struct SettingsView: View {
     @State private var noticeMessage = ""
     
     // MARK: - UI Layout Constants (Pure Visual styling)
-    private let rowHeight: CGFloat = 56
-    private let maxListHeight: CGFloat = 336 // 56 * 6 rows
+    @ScaledMetric(relativeTo: .caption) private var rowHeight: CGFloat = 56
     
     var body: some View {
         NavigationStack {
@@ -26,7 +25,7 @@ struct SettingsView: View {
                     SectionHeader(
                         icon: "app.shadow",
                         title: "RESTRICTED APPS",
-                        subtitle: "Select apps to restrict once your allowance is reached.\nThese apps require walking to unlock."
+                        subtitle: "Select apps to restrict once your allowance is reached. These apps require walking to unlock."
                     )
                     .padding(.top, 36)
                     
@@ -38,6 +37,7 @@ struct SettingsView: View {
                                 .font(.body)
                                 .foregroundStyle(.primary)
                                 .tint(.indigo)
+                                .multilineTextAlignment(.leading)
                             
                             Spacer()
                             
@@ -62,51 +62,48 @@ struct SettingsView: View {
                             .padding(.horizontal, 8)
                             .padding(.bottom, 8)
 
-                        ScrollView(showsIndicators: viewModel.totalSelectionsCount > 6) {
-                            VStack(spacing: 0) {
-                                
-                                // 1. Loop through Categories First
-                                ForEach(Array(viewModel.selectedCategoryTokens.enumerated()), id: \.element) { index, token in
-                                    VStack(spacing: 0) {
-                                        HStack(spacing: 12) {
-                                            Label(token)
-                                                .labelStyle(.scaledIcon)
-                                                .font(.caption)
-                                                .foregroundStyle(.primary)
+                        VStack(spacing: 0) {
+                            
+                            // 1. Loop through Categories First
+                            ForEach(Array(viewModel.selectedCategoryTokens.enumerated()), id: \.element) { index, token in
+                                VStack(spacing: 0) {
+                                    HStack(spacing: 12) {
+                                        Label(token)
+                                            .labelStyle(.scaledIcon)
+                                            .font(.caption)
+                                            .foregroundStyle(.primary)
 
-                                            Spacer()
-                                        }
-                                        .frame(height: rowHeight)
-                                        .padding(.horizontal, 16)
+                                        Spacer()
+                                    }
+                                    .frame(minHeight: rowHeight)
+                                    .padding(.horizontal, 16)
 
-                                        if index < viewModel.selectedCategoryTokens.count - 1 || !viewModel.selectedApplicationTokens.isEmpty {
-                                            Divider().padding(.leading, 58)
-                                        }
+                                    if index < viewModel.selectedCategoryTokens.count - 1 || !viewModel.selectedApplicationTokens.isEmpty {
+                                        Divider().padding(.leading, 58)
                                     }
                                 }
-                                
-                                // 2. Loop through Individual Apps Second
-                                ForEach(Array(viewModel.selectedApplicationTokens.enumerated()), id: \.element) { index, token in
-                                    VStack(spacing: 0) {
-                                        HStack(spacing: 12) {
-                                            Label(token)
-                                                .labelStyle(.scaledIcon)
-                                                .font(.caption)
-                                                .foregroundStyle(.primary)
+                            }
+                            
+                            // 2. Loop through Individual Apps Second
+                            ForEach(Array(viewModel.selectedApplicationTokens.enumerated()), id: \.element) { index, token in
+                                VStack(spacing: 0) {
+                                    HStack(spacing: 12) {
+                                        Label(token)
+                                            .labelStyle(.scaledIcon)
+                                            .font(.caption)
+                                            .foregroundStyle(.primary)
 
-                                            Spacer()
-                                        }
-                                        .frame(height: rowHeight)
-                                        .padding(.horizontal, 16)
+                                        Spacer()
+                                    }
+                                    .frame(minHeight: rowHeight)
+                                    .padding(.horizontal, 16)
 
-                                        if index < viewModel.selectedApplicationTokens.count - 1 {
-                                            Divider().padding(.leading, 58)
-                                        }
+                                    if index < viewModel.selectedApplicationTokens.count - 1 {
+                                        Divider().padding(.leading, 58)
                                     }
                                 }
                             }
                         }
-                        .frame(height: min(CGFloat(viewModel.totalSelectionsCount) * rowHeight, maxListHeight))
                         .background(Color(uiColor: .secondarySystemGroupedBackground))
                         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                     }
@@ -155,30 +152,7 @@ struct SettingsView: View {
                     )
                     .padding(.top, 36)
 
-                    VStack(spacing: 12) {
-                        HStack {
-                            Text("Allowance Duration")
-                                .font(.bodyRegular)
-                            
-                            Spacer()
-                            
-                            Picker("Reward Time", selection: $viewModel.timeEarned) {
-                                Text("5 Minutes").tag(5)
-                                Text("15 Minutes").tag(15)
-                                Text("30 Minutes").tag(30)
-                                Text("45 Minutes").tag(45)
-                                Text("1 Hour").tag(60)
-                                Text("1.5 Hours").tag(90)
-                                Text("2 Hours").tag(120)
-                            }
-                            .pickerStyle(.menu)
-                            .tint(.white)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 6)
-                            .background(Color(uiColor: .systemIndigo))
-                            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                        }
-                    }
+                    AllowanceDurationRow(timeEarned: $viewModel.timeEarned, cornerRadius: 8)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 18)
                     .background(Color(uiColor: .secondarySystemGroupedBackground))
@@ -186,6 +160,7 @@ struct SettingsView: View {
                     .padding(.bottom, 32)
                 }
                 .padding(.horizontal, 24)
+                .readableWidth()
 
             }
             .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())

@@ -7,6 +7,8 @@ struct StatCardView: View {
     let value: String
     let tintColor: Color
     let infoAction: () -> Void
+
+    @ScaledMetric(relativeTo: .footnote) private var iconSize: CGFloat = 20
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
@@ -15,7 +17,7 @@ struct StatCardView: View {
                 Image(systemName: icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 20, height: 20)
+                    .frame(width: iconSize, height: iconSize)
                     .foregroundStyle(tintColor)
                 
                 Text(title)
@@ -29,13 +31,14 @@ struct StatCardView: View {
                         .font(.bodyRegular)
                         .foregroundStyle(Color(uiColor: .tertiaryLabel))
                 }
+                .accessibilityLabel("About \(title)")
             }
             
             Text(value)
                 .font(.titleRoundedBold)
                 .foregroundStyle(.primary)
                 .lineLimit(1)
-                .minimumScaleFactor(0.75)
+                .minimumScaleFactor(0.5)
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)

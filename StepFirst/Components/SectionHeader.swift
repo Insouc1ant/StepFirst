@@ -4,6 +4,8 @@ struct SectionHeader: View {
     let icon: String
     let title: String
     let subtitle: String
+
+    @ScaledMetric(relativeTo: .footnote) private var iconSize: CGFloat = 20
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -11,7 +13,7 @@ struct SectionHeader: View {
                 Image(systemName: icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 20, height: 20)
+                    .frame(width: iconSize, height: iconSize)
                 Text(title)
                     .font(.footnoteBold)
             }
@@ -20,6 +22,7 @@ struct SectionHeader: View {
             Text(subtitle)
                 .font(.footnoteRegular)
                 .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
                 .padding(.bottom, 12)
         }
     }

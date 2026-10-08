@@ -5,6 +5,10 @@ struct HeroProgressRing: View {
     let timeEarned: Int
     let stepsWalked: Int
     let stepTarget: Int
+
+    // Grows with Dynamic Type (capped), and shrinks to fit narrow windows.
+    @ScaledMetric(relativeTo: .largeTitle) private var ringDiameter: CGFloat = 280
+    private let maxRingDiameter: CGFloat = 360
     
     var ringColor: Color {
         !isLocked ? .indigo : .orange
@@ -33,41 +37,56 @@ struct HeroProgressRing: View {
                 .animation(.spring(response: 1.0, dampingFraction: 0.8), value: progressAmount)
                 .animation(.easeInOut, value: ringColor) // Smooth color transition
 
-            // Dynamic Text inside the circle
-            VStack(spacing: 8) {
-                if !isLocked {
-                    // UNLOCKED STATE
-                    Image(systemName: "lock.open.fill")
-                        .font(.title)
-                        .foregroundStyle(.green)
-                    
-                    Text("\(timeEarned) Min")
-                        .font(.largeTitleRoundedBold)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.65)
-                    
-                    Text("Allowance Active")
-                        .font(.subheadlineSemibold)
-                        .foregroundStyle(.secondary)
-                } else {
-                    // LOCKED STATE
-                    Image(systemName: "lock.fill")
-                        .font(.title)
-                        .foregroundStyle(.red)
-                    
-                    Text("\(stepsWalked)")
-                        .font(.largeTitleRoundedBold)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.65)
-                    
-                    Text("of \(stepTarget) steps")
-                        .font(.subheadlineSemibold)
-                        .foregroundStyle(.secondary)
-                }
+            // Dynamic Text inside the circle, kept within the ring's inner area
+            GeometryReader { geo in
+                ringContent
+                    .frame(width: geo.size.width * 0.64, height: geo.size.height * 0.64)
+                    .position(x: geo.size.width / 2, y: geo.size.height / 2)
             }
-            .padding(.horizontal, 24)
         }
-        .frame(width: 280, height: 280)
+        .aspectRatio(1, contentMode: .fit)
+        .frame(maxWidth: min(ringDiameter, maxRingDiameter))
+        .padding(.horizontal, 24)
+    }
+
+    private var ringContent: some View {
+        VStack(spacing: 8) {
+            if !isLocked {
+                // UNLOCKED STATE
+                Image(systemName: "lock.open.fill")
+                    .font(.title)
+                    .foregroundStyle(.green)
+
+                Text("\(timeEarned) Min")
+                    .font(.largeTitleRoundedBold)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.4)
+
+                Text("Allowance Active")
+                    .font(.subheadlineSemibold)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.5)
+            } else {
+                // LOCKED STATE
+                Image(systemName: "lock.fill")
+                    .font(.title)
+                    .foregroundStyle(.red)
+
+                Text("\(stepsWalked)")
+                    .font(.largeTitleRoundedBold)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.4)
+
+                Text("of \(stepTarget) steps")
+                    .font(.subheadlineSemibold)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.5)
+            }
+        }
+        .multilineTextAlignment(.center)
+        .dynamicTypeSize(...DynamicTypeSize.accessibility2)
     }
 }
 

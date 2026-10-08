@@ -67,4 +67,39 @@ struct DashboardViewModelTests {
         // THEN: The app must remain locked
         #expect(sut.lockStatus == true)
     }
+    
+    @Test("Releases the lock when this device can't count steps")
+    func unlocksWhenStepCountingUnavailable() {
+        // GIVEN: A device without a step counter, with apps currently locked
+        let sut = DashboardViewModel(stepManager: mock, stepAvailabilityProvider: { .unsupported })
+        sut.lockStatus = true
+        
+        // WHEN: The dashboard refreshes
+        sut.refreshStepAvailability()
+        
+        // THEN: Apps are unlocked, so the user is never stuck
+        #expect(sut.stepAvailability == .unsupported)
+        #expect(sut.lockStatus == false)
+    }
+    
+    @Test("Releases the lock when Motion & Fitness access is denied")
+    func unlocksWhenMotionAccessDenied() {
+        let sut = DashboardViewModel(stepManager: mock, stepAvailabilityProvider: { .denied })
+        sut.lockStatus = true
+        
+        sut.refreshStepAvailability()
+        
+        #expect(sut.stepAvailability == .denied)
+        #expect(sut.lockStatus == false)
+    }
+    
+    @Test("Keeps the lock when steps can be counted")
+    func keepsLockWhenStepCountingAvailable() {
+        let sut = DashboardViewModel(stepManager: mock, stepAvailabilityProvider: { .available })
+        sut.lockStatus = true
+        
+        sut.refreshStepAvailability()
+        
+        #expect(sut.lockStatus == true)
+    }
 }

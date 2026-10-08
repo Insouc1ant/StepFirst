@@ -14,12 +14,13 @@ struct StatusIndicatorView: View {
             .foregroundStyle(isLocked ? Color(uiColor: .systemRed) : Color(uiColor: .systemGreen))
 
             Text(isLocked
-                 ? "Walk \(stepTarget) steps to unlock your restricted apps\nfor \(timeEarned) minutes."
-                 : "Your restricted apps will automatically lock when\nthis timer reaches zero.")
+                 ? "Walk \(stepTarget) steps to unlock your restricted apps for \(timeEarned) minutes."
+                 : "Your restricted apps will automatically lock when this timer reaches zero.")
                 .font(.footnoteRegular)
                 .foregroundStyle(Color(uiColor: .systemGray))
                 .multilineTextAlignment(.center)
-                .frame(minHeight: 36, alignment: .top)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: 340, minHeight: 36, alignment: .top)
                 .padding(.horizontal, 32)
         }
     }

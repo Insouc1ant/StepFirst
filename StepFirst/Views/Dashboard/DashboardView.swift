@@ -13,15 +13,22 @@ struct DashboardView: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
 
+    @ScaledMetric(relativeTo: .largeTitle) private var settingsIconSize: CGFloat = 32
+
     // MARK: - Body
     var body: some View {
-        VStack(spacing: 0) {
-            headerView
-            progressSection
-            statusSection
-            cardsSection
-            Spacer()
+        ScrollView {
+            VStack(spacing: 0) {
+                headerView
+                stepAvailabilitySection
+                progressSection
+                statusSection
+                cardsSection
+            }
+            .padding(.bottom, 24)
+            .readableWidth()
         }
+        .scrollBounceBehavior(.basedOnSize)
         .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
         .sheet(isPresented: $showingSettings) {
             SettingsView()
@@ -53,6 +60,8 @@ struct DashboardView: View {
             Text("Dashboard")
                 .font(.largeTitleBold)
                 .foregroundStyle(.primary)
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
 
             Spacer()
 
@@ -62,14 +71,24 @@ struct DashboardView: View {
                 Image(systemName: "gearshape.fill")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 32, height: 32)
+                    .frame(width: min(settingsIconSize, 44), height: min(settingsIconSize, 44))
                     .foregroundStyle(Color(uiColor: .systemGray2))
-                    .frame(width: 44, height: 44)
+                    .frame(minWidth: 44, minHeight: 44)
             }
+            .accessibilityLabel("Settings")
         }
         .padding(.top, 24)
         .padding(.horizontal, 24)
         .padding(.bottom, 24)
+    }
+
+    @ViewBuilder
+    private var stepAvailabilitySection: some View {
+        if !viewModel.canCountSteps {
+            StepAvailabilityNotice(availability: viewModel.stepAvailability)
+                .padding(.horizontal, 24)
+                .padding(.bottom, 8)
+        }
     }
 
     private var progressSection: some View {
@@ -133,6 +152,7 @@ struct DashboardView: View {
                         .font(.bodyRegular)
                         .foregroundStyle(Color(uiColor: .tertiaryLabel))
                 }
+                .accessibilityLabel("About Restricted Apps")
             }
             .padding(.horizontal, 16)
             .padding(.top, 16)

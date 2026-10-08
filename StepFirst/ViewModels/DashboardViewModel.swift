@@ -36,12 +36,14 @@ final class DashboardViewModel {
     var hasSetInitialUsage: Bool = true
     var liveSteps: Int = 0
     var selectedApps = FamilyActivitySelection()
+    var stepAvailability: StepAvailability = .available
     
     // MARK: - Dependencies (Injectable Services)
     let stepManager: StepTrackingService
     let screenTimeManager: ScreenTimeManager
     let deviceActivityManager: DeviceActivityManager
     let notificationManager: NotificationManager
+    private let stepAvailabilityProvider: () -> StepAvailability
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -50,12 +52,15 @@ final class DashboardViewModel {
         stepManager: StepTrackingService? = nil,
         screenTimeManager: ScreenTimeManager? = nil,
         deviceActivityManager: DeviceActivityManager? = nil,
-        notificationManager: NotificationManager? = nil
+        notificationManager: NotificationManager? = nil,
+        stepAvailabilityProvider: (() -> StepAvailability)? = nil
     ) {
         self.stepManager = stepManager ?? StepManager()
         self.screenTimeManager = screenTimeManager ?? .shared
         self.deviceActivityManager = deviceActivityManager ?? .shared
         self.notificationManager = notificationManager ?? .shared
+        self.stepAvailabilityProvider = stepAvailabilityProvider ?? { StepAvailability.current }
+        self.stepAvailability = self.stepAvailabilityProvider()
         
         loadInitialState()
         bindStepManager()
@@ -153,11 +158,11 @@ final class DashboardViewModel {
     }
     
     var selectedCategoryTokens: [ActivityCategoryToken] {
-        Array(selectedApps.categoryTokens)
+        selectedApps.categoryTokens.sortedByEncoding()
     }
     
     var selectedApplicationTokens: [ApplicationToken] {
-        Array(selectedApps.applicationTokens)
+        selectedApps.applicationTokens.sortedByEncoding()
     }
     
     var totalSelectionsCount: Int {
@@ -170,17 +175,37 @@ final class DashboardViewModel {
     
     // MARK: - Business Logic & Intent Methods
     
+    var canCountSteps: Bool {
+        stepAvailability == .available
+    }
+    
     func onAppear() {
         syncFromStorage()
         stepManager.startTracking()
+        refreshStepAvailability()
 
-        if !lockStatus {
+        if !lockStatus && canCountSteps {
             deviceActivityManager.startMonitoring(timeLimitMinutes: timeEarned)
         }
     }
     
     func refreshDashboard() {
         syncFromStorage()
+        refreshStepAvailability()
+    }
+
+    /// Apps are only locked while steps can be counted, so the user can always walk to unlock.
+    /// If counting isn't possible (no step counter, or Motion & Fitness access denied), release any lock.
+    func refreshStepAvailability() {
+        stepAvailability = stepAvailabilityProvider()
+        guard !canCountSteps else { return }
+
+        deviceActivityManager.stopMonitoring()
+        if lockStatus {
+            handleLockStatusChange(isLocked: false)
+            screenTimeManager.unlockApps()
+            recalculateAllowance()
+        }
     }
     
     func handleLockStatusChange(isLocked: Bool) {
